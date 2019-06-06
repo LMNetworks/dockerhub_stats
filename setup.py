@@ -33,7 +33,7 @@ setup(
     author_email='info@lm-net.it',
     url='https://github.com/LMNetworks/dockerhub_stats',
     classifiers=[
-        'Development Status :: 4 - Beta',
+        'Development Status :: 5 - Production/Stable',
         'Environment :: Console',
         'Intended Audience :: System Administrators',
         'License :: OSI Approved :: GNU General Public License v2 (GPLv2)',
