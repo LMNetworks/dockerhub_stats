@@ -125,7 +125,7 @@ $ git checkout https://www.github.com/LMNetworks/docker-dockerhub_stats
 $ ./setup.py install
 ```
 
-### Docker image
+### Docker image
 
 Automated builds can be found [on Docker Hub](https://hub.docker.com/r/lmnetworks/dockerhub_stats), but if you prefer it is possible to use the `Dockerfile` included with the source code to build an image based on `lmnetworks/python3` ([GitHub](https://www.github.com/LMNetworks/docker-python3), [Docker Hub](https://hub.docker.com/r/lmnetworks/python3)):
 
