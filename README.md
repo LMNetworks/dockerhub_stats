@@ -74,11 +74,14 @@ By default tables are sorted alphabetically by repository name, but can be sorte
 
 ### exporting data to InfluxDB
 
-The same data (excluding repository description) can be written to an [InfluxDB]() time series database by specifing the InfluxDB server host:
+The same data (excluding repository description) can be written to an [InfluxDB](https://github.com/influxdata/influxdb) time series database by specifing the InfluxDB server host:
 
 ```
-$ # --quiet suppresses standard output
-$ dockerhub_stats --quiet --influxdb-host=192.168.100.200 library/influxdb grafana/grafana library/traefik
+# --quiet suppresses standard output
+dockerhub_stats --quiet --influxdb-host=192.168.100.200 \
+    library/influxdb \
+    grafana/grafana \
+    library/traefik
 ```
 
 Note that instead of running `dockerhub_stats` multiple times with different repos it is usually better to have a single invocation with the full list of repositories, this way they will be written in InfluxDB with the same timestamp and will be easier / prettier to query and graph.
@@ -94,12 +97,21 @@ docker run --rm lmnetworks/dockerhub_stats --help
 
 Getting a nice table:
 ```
-docker run --rm lmnetworks/dockerhub_stats lmnetworks library/alpine gitea/gitea gitlab/gitlab-ce gitlab/gitlab-runner
+docker run --rm lmnetworks/dockerhub_stats \
+    lmnetworks \
+    library/alpine \
+    gitea/gitea \
+    gitlab/gitlab-ce \
+    gitlab/gitlab-runner
 ```
 
 Writing to InfluxDB and omitting standard output:
 ```
-docker run --rm lmnetworks/dockerhub_stats -q --influxdb-host=192.168.100.200 lmnetworks gitlab library grafana/grafana
+docker run --rm lmnetworks/dockerhub_stats -q --influxdb-host=192.168.100.200 \
+    lmnetworks \
+    gitlab \
+    library \
+    grafana/grafana
 ```
 
 ## building / installing
@@ -115,13 +127,13 @@ docker run --rm lmnetworks/dockerhub_stats -q --influxdb-host=192.168.100.200 lm
 Using [pip](https://pip.pypa.io/en/stable/):
 
 ```
-$ git checkout https://www.github.com/LMNetworks/docker-dockerhub_stats
+$ git clone https://github.com/LMNetworks/dockerhub_stats.git
 $ pip install .
 ```
 
 Using good old [setuptools](https://pypi.org/project/setuptools/):
 ```
-$ git checkout https://www.github.com/LMNetworks/docker-dockerhub_stats
+$ git clone https://github.com/LMNetworks/dockerhub_stats.git
 $ ./setup.py install
 ```
 
