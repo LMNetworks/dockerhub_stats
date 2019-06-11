@@ -1,0 +1,22 @@
+stages:
+  - build
+  - test
+  - cleanup
+
+build:
+  stage: build
+  image: docker:stable
+  script:
+    - docker build --tag $CI_PROJECT_NAME:$CI_COMMIT_SHORT_SHA .
+
+smoke_test:
+  stage: test
+  image: docker:stable
+  script:
+    - docker run --rm $CI_PROJECT_NAME:$CI_COMMIT_SHORT_SHA --version
+
+cleanup:
+  stage: cleanup
+  image: docker:stable
+  script:
+    - docker rmi $CI_PROJECT_NAME:$CI_COMMIT_SHORT_SHA
