@@ -1,4 +1,4 @@
-FROM lmnetworks/python3:3.7.3_20190625
+FROM lmnetworks/python3:3.7.3_20190723
 
 # when possible install dependencies from Alpine packages
 RUN apk add --no-cache py3-prettytable=0.7.2-r2 \
